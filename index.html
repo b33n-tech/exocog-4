@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestionnaire Tâches & Modules</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Gestionnaire Tâches & Modules</h1>
+
+<div class="container">
+  <!-- Section 1 : Input / Tâches -->
+  <div class="section" id="sectionTasks">
+    <h2>📋 Tâches & Commentaires</h2>
+    <div class="input-row">
+      <input type="text" id="taskInput" placeholder="Ajouter une nouvelle tâche…">
+      <button id="addBtn">➕ Ajouter</button>
+    </div>
+    <ul id="tasksContainer"></ul>
+
+    <div class="buttons-row">
+      <button id="clearBtn">🧹 Tout nettoyer</button>
+      <button id="archiveBtn">📂 Exporter JSON</button>
+      <button id="pasteDownloadBtn">📋 Coller JSON & Télécharger</button>
+      <select id="llmSelect">
+        <option value="https://chat.openai.com/">GPT</option>
+        <option value="https://www.perplexity.ai/">Perplexity</option>
+        <option value="https://www.anthropic.com/">Claude</option>
+        <option value="https://www.mistral.ai/">Mistral</option>
+      </select>
+      <span id="copiedMsg" style="display:none;color:green;">✅ Copié !</span>
+    </div>
+
+    <div id="promptsContainer"></div>
+  </div>
+
+  <!-- Section 2 : Modules -->
+  <div class="section" id="sectionModules">
+    <h2>🗂️ Modules d’action</h2>
+
+    <div class="module" id="jalonsModule">
+      <h3>Jalons & Sous-actions</h3>
+      <ul id="jalonsList"></ul>
+    </div>
+
+    <div class="module" id="messagesModule">
+      <h3>Messages / Emails</h3>
+      <table>
+        <thead>
+          <tr><th>À traiter</th><th>Destinataire</th><th>Sujet</th><th>Texte</th></tr>
+        </thead>
+        <tbody id="messagesTableBody"></tbody>
+      </table>
+      <div class="mail-actions">
+        <select id="mailPromptSelect">
+          <option value="1">Template formel</option>
+          <option value="2">Template amical</option>
+        </select>
+        <button id="generateMailBtn">Push au LLM</button>
+      </div>
+    </div>
+
+    <div class="module" id="rdvModule">
+      <h3>Rendez-vous / Créneaux</h3>
+      <ul id="rdvList"></ul>
+    </div>
+
+    <div class="module" id="livrablesModule">
+      <h3>Livrables à produire</h3>
+      <ul id="livrablesList"></ul>
+      <div class="livrable-actions">
+        <select id="livrablePromptSelect">
+          <option value="1">Plan détaillé</option>
+          <option value="2">Résumé exécutif</option>
+          <option value="3">Checklist rapide</option>
+        </select>
+        <button id="generateLivrableBtn">Push au LLM</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
